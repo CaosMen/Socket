@@ -46,8 +46,9 @@ def main():
   try:
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.connect((ip, port))
-  except socket.error:
+  except socket.error as err:
     print('Failed to connect socket!')
+    print(f'{err}\n')
     return
 
   # Ser username

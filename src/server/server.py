@@ -23,9 +23,10 @@ list_clients = []
 rooms = {}
 
 # Disconnect client
-def disconnect_client(connec):
+def disconnect_client(connec, addr):
   if connec in list_clients:
     list_clients.remove(connec)
+    leave_room(rooms, connec, addr)
 
 # Client thread
 def client_thread(connec, addr):
@@ -39,15 +40,20 @@ def client_thread(connec, addr):
   }
 
   while True:
-    recv = connec.recv(3)
+    try: 
+      recv = connec.recv(3)
     
-    if not recv:
-      disconnect_client(connec)
+      if not recv:
+        break
+      
+      message = recv.decode(format)
+      commands.get(message)(rooms, connec, addr)
+    except Exception as err:
+      print(f'The IP owner {addr[0]} had an exception')
+      print(f'{err}\n')
       break
-    
-    message = recv.decode(format)
-    commands.get(message)(rooms, connec, addr)
   
+  disconnect_client(connec, addr)
   connec.close()
 
 # Main
@@ -64,7 +70,7 @@ def main():
     server.listen()
   except socket.error as err:
     print('Failed to create socket!')
-    print(err)
+    print(f'{err}\n')
     return
 
   # Server is on
@@ -80,7 +86,8 @@ def main():
     print(f'The IP owner {addr[0]} just logged in!')
     print(f'Total connected users: {len(list_clients)}\n')
 
-    Thread(target=client_thread, args=(connec, addr)).start()
+    thread = Thread(target=client_thread, args=(connec, addr))
+    thread.start()
 
 if __name__ == '__main__':
   main()

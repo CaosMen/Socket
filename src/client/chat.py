@@ -72,25 +72,30 @@ def create_keybindings(output_field):
 
 def handle_message(server, output_field):
   while True:
-    recv = server.recv(3)
+    try:
+      recv = server.recv(3)
 
-    if not recv:
-      break
-    
-    identifier = recv.decode(format)
-    
-    if (identifier == 'MSG'):
-      recv_msg = server.recv(2048)
-      message = recv_msg.decode(format)
+      if not recv:
+        break
+      
+      identifier = recv.decode(format)
+      
+      if (identifier == 'MSG'):
+        recv_msg = server.recv(2048)
+        message = recv_msg.decode(format)
 
-      new_text = output_field.text + f'{message}\n'
+        new_text = output_field.text + f'{message}\n'
 
-      output_field.buffer.document = Document(
-        text=new_text, cursor_position=len(new_text)
-      )
-    elif (identifier == 'EXT'):
-      break
-    else:
+        output_field.buffer.document = Document(
+          text=new_text, cursor_position=len(new_text)
+        )
+      elif (identifier == 'EXT'):
+        break
+      else:
+        break
+    except Exception as err:
+      print(f'An exception error has occurred')
+      print(f'{err}\n')
       break
 
 # Create chat ui

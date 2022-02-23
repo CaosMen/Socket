@@ -67,8 +67,10 @@ def create_room(rooms, connec, addr):
           rooms[room_name] = []
           print(f'The IP owner {addr[0]} created the room: {room_name}')
           break
-    except:
-      continue
+    except Exception as err:
+      print(f'The IP owner {addr[0]} had an exception')
+      print(f'{err}\n')
+      break
 
 # Enter a room
 def enter_room(rooms, connec, addr):
@@ -91,19 +93,24 @@ def enter_room(rooms, connec, addr):
         else:
           # Sends the value '0' to show that the room not exists
           connec.send('0'.encode(format))
-    except:
-      continue
+    except Exception as err:
+      print(f'The IP owner {addr[0]} had an exception')
+      print(f'{err}\n')
+      break
 
 # Leave a room
 def leave_room(rooms, connec, addr):
   # User room
   key = get_user_room(rooms, connec)
-  # Remove user from room
-  rooms[key].remove(connec)
-
-  # Check if room is empty to delete
-  if len(rooms[key]) == 0:
-    del rooms[key]
   
-  # Send command to exit "handle_message" thread
-  connec.send('EXT'.encode(format))
+  if key != -1:
+    # Remove user from room
+    if connec in rooms[key]:
+      rooms[key].remove(connec)
+
+    # Check if room is empty to delete
+    if len(rooms[key]) == 0:
+      del rooms[key]
+    
+    # Send command to exit "handle_message" thread
+    connec.send('EXT'.encode(format))
