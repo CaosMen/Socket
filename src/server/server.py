@@ -62,8 +62,9 @@ def main():
 
     server.bind((ip, port))
     server.listen()
-  except socket.error:
+  except socket.error as err:
     print('Failed to create socket!')
+    print(err)
     return
 
   # Server is on

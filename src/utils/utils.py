@@ -6,7 +6,7 @@ import os
 format = 'utf-8'
 
 # Get arguments or use default
-# ip: 127.0.0.1, port: 443
+# ip: 127.0.0.1, port: 65432
 def get_args():
   ip, port = '', None
 
