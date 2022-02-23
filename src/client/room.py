@@ -9,7 +9,7 @@ from utils import format
 # Chat UI
 from chat import create_chat
 
-# Connecting in the room
+# Connecting to the room
 def connect_room(server, room_name, username):
   # Send command to server
   server.send('CNC'.encode(format))
