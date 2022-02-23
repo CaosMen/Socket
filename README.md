@@ -68,7 +68,7 @@ Socket
 O projeto foi totalmente desenvolvido utilizando Python, então se faz necessário ter uma versão atualizada do mesmo instalada (Python 3, na versão 3.8.10 ou superior). Também foram utilizadas duas bibliotecas para facilitar a implementação de algumas funcionalidades (necessário realizar a instalação através do arquivo ``requirements.txt``). As dependências do projeto estão listadas abaixo:
 
 | Dependência | Versão | Informações | Uso no Projeto |
-| ------ | ------ | ------ |
+| ------ | ------ | ------ | ------ |
 | Python | 3.8.10 | [Site](https://www.python.org/) | Linguagem utilizada |
 | Pip | 21.3.1 | [Site](https://pypi.org/project/pip/) | Instalador de pacotes |
 | console-menu | 0.7.0 | [Github](https://github.com/aegirhall/console-menu) | Utilizada para implementar o menu |
