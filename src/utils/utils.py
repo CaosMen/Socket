@@ -15,9 +15,9 @@ def get_args():
   except IndexError:
     ip = '127.0.0.1'
   try:
-    port = sys.argv[2]
+    port = int(sys.argv[2])
   except IndexError:
-    port = 443
+    port = 65432
 
   return ip, port
 
