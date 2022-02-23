@@ -109,7 +109,7 @@ O servidor será executado e ficará disponível para conexões. É possível pa
     $ python server.py 192.168.0.1 1000
 ```
 
-Caso os parâmetros não sejam informados, o servidor será executado por padrão no IP 127.0.0.1, porta 443.
+Caso os parâmetros não sejam informados, o servidor será executado por padrão no IP 127.0.0.1, porta 65432.
 
 #### Clientes
 
@@ -126,6 +126,6 @@ O cliente será executado e se conectará ao servidor (que deve estar em execuç
     $ python client.py 192.168.0.1 1000
 ```
 
-Caso os parâmetros não sejam informados, o cliente conectará por padrão no IP 127.0.0.1, porta 443. 
+Caso os parâmetros não sejam informados, o cliente conectará por padrão no IP 127.0.0.1, porta 65432. 
 
 Ao executar o cliente, será exibido um menu e as demais instruções de excução serão fornecidas. Repetir os passos conforme a quantidade de clientes que deseja executar.
