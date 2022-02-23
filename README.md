@@ -16,7 +16,7 @@ Clique nos links abaixo para acessar rapidamente a seção desejada:
 - [Sobre](#sobre)
 - [Principais Funcionalidades](#principais-funcionalidades)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Bibliotecas utilizadas](#bibliotecas-utilizadas)
+- [Dependências](#dependências)
 - [Como executar](#como-executar)
 
 ## Sobre
@@ -63,9 +63,9 @@ Socket
 - Já na pasta ``server``, de maneira análoga, se encontram os arquivos responsáveis pelo funcionamento da aplicação no lado servidor, incluindo ``room.py``, que implementa a lógica de funcionamento das salas no lado servidor (funções como criar a sala, conectar, enviar e receber mensagens, sair da sala) e ``server.py``, com o código de criação do servidor, gerenciamento de conexões e threads, conexão e desconexão de clientes, exibição de logs e outros.
 - Por fim, temos a pasta ``utils``, que abriga apenas o arquivo ``utils.py``, onde estão funções úteis para os demais módulos da aplicação, como tratamento de argumentos na execução dos arquivos (IP e porta) e limpar o console independentemente do sistema operacional.
 
-## Bibliotecas utilizadas
+## Dependências
 
-Durante o desenvolvimento do projeto, foram utilizadas duas bibliotecas para facilitar a implementação de algumas funcionalidades (necessário realizar a instalação através do arquivo ``requirements.txt``), que estão listadas abaixo:
+O projeto foi totalmente desenvolvido utilizando Python, então se faz necessário ter uma versão atualizada do mesmo instalada. Também foram utilizadas duas bibliotecas para facilitar a implementação de algumas funcionalidades (necessário realizar a instalação através do arquivo ``requirements.txt``), que estão listadas abaixo:
 
 | Biblioteca | Informações | Uso no Projeto |
 | ------ | ------ | ------ |
@@ -74,7 +74,7 @@ Durante o desenvolvimento do projeto, foram utilizadas duas bibliotecas para fac
 
 ## Como executar
 
-Para executar o projeto, é necessário abrir tanto a aplicação servidor quanto a cliente (podendo abrir quantos clientes desejar para testar a funcionalidade de chat). A execução se dá no terminal (console) e segue os passos descritos abaixo. Para todos os casos, os comandos são executados a partir da raiz do projeto.
+Para executar o projeto, além do Python instalado, é necessário abrir tanto a aplicação servidor quanto a cliente (podendo abrir quantos clientes desejar para testar a funcionalidade de chat). A execução se dá no terminal (console) e segue os passos descritos abaixo. Para todos os casos, os comandos são executados a partir da raiz do projeto.
 
 ### Primeira execução
 
