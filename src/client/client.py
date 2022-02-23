@@ -51,7 +51,7 @@ def main():
     print(f'{err}\n')
     return
 
-  # Ser username
+  # Set username
   username = create_username(ip, port)
   
   # Creating and showing the menu
